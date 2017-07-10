@@ -68,6 +68,7 @@
     for (int ii = 0; ii < 10; ii ++) {
         [self.tableView.dataArray addObject:@(ii)];
     }
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });

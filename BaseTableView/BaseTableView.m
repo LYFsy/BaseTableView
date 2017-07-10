@@ -39,22 +39,11 @@
 #pragma mark UITableViewDataSource - Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    id obj = [_dataArray firstObject];
-    if ([obj isKindOfClass:[NSArray class]] && obj != nil) {
-        return [(NSArray *)obj count];
-    }else {
-        return 1;
-    }
+    return  1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    id obj = [_dataArray firstObject];
-    if ([obj isKindOfClass:[NSArray class]] && obj != nil) {
-        return [(NSArray *)obj[section] count];
-    }else {
-        return [_dataArray count];
-    }
+    return [_dataArray count];
 }
 
 

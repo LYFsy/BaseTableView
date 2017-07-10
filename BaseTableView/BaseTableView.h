@@ -16,13 +16,16 @@
 
 #import "BaseEmptyTableView.h"
 
+//渲染cell
 typedef UITableViewCell *(^CallbackCell)(UITableViewCell * cell,NSIndexPath * indexPath);
 
+//点击cell
 typedef void(^CallbackDidSelectedCell)(UITableViewCell * cell,NSIndexPath * indexPath);
 
 @interface BaseTableView : BaseEmptyTableView
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)CallbackCell callbackCell;
+
 @property(nonatomic,strong)CallbackDidSelectedCell callbackDidSelectedCell;
 @end
 

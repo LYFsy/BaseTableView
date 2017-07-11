@@ -27,5 +27,11 @@ typedef void(^CallbackDidSelectedCell)(UITableViewCell * cell,NSIndexPath * inde
 @property(nonatomic,strong)CallbackCell callbackCell;
 
 @property(nonatomic,strong)CallbackDidSelectedCell callbackDidSelectedCell;
+
+/**
+ NOTE:
+ 初始化tableview的时候，一定要记得调用这个block 把cell的重用标识符给回川给BaseTableview，否则重用会出现问题
+ */
+- (instancetype)initWithFrame:(CGRect)frame callbackIdentifier:(NSString * (^)(void))callbackIdentifier;
 @end
 

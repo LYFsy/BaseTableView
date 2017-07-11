@@ -21,8 +21,21 @@
 
 @implementation BaseTableView
 
+static NSString * identifier = nil;
+
+- (instancetype)initWithFrame:(CGRect)frame callbackIdentifier:(NSString *(^)(void))callbackIdentifier {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setConfigure];
+        identifier = callbackIdentifier();
+
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    
     self = [super initWithFrame:frame];
     if (self) {
         [self setConfigure];
@@ -48,8 +61,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString * identifier = @"cellId";
+    NSAssert(identifier != nil,@"must invok  - (instancetype) initWithFrame: callbackIdentifier:  init current Tableview and callback a valid parameter for identifer");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];

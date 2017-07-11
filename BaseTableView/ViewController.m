@@ -24,8 +24,13 @@
 }
 
 - (void)tableviewConfigure {
-    self.tableView = [[BaseRefreshTableView alloc]initWithFrame:self.view.bounds];
-    [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"cellId"];
+    
+    static NSString * identifer = @"customCell";
+    
+    self.tableView = [[BaseRefreshTableView alloc]initWithFrame:self.view.bounds callbackIdentifier:^NSString *{
+        return identifer;
+    }];
+    [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:identifer];
     [self tableViewCellDrawRectMethod];
     [self tableViewDidSelectedCellMethod];
     self.tableView.iDelegate = self;

@@ -11,7 +11,7 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "BaseRefreshTableView.h"
 #import "CustomCell.h"
-@interface ViewController ()<BaseTableViewDelegate>
+@interface ViewController ()<BaseEmptyTableViewDelegate>
 @property(nonatomic,strong)BaseRefreshTableView *tableView;
 @end
 

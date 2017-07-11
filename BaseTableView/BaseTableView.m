@@ -61,7 +61,7 @@ static NSString * identifier = nil;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSAssert(identifier != nil,@"must invok  - (instancetype) initWithFrame: callbackIdentifier:  init current Tableview and callback a valid parameter for identifer");
+    NSAssert(identifier != nil,@"must invok  - (instancetype) initWithFrame: callbackIdentifier: Method to init current Tableview and callback a valid parameter for identifer");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];

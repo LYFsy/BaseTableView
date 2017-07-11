@@ -15,7 +15,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol BaseTableViewDelegate <NSObject>
+@protocol BaseEmptyTableViewDelegate <NSObject>
 
 - (void)requestDataByDelegate;
 
@@ -48,7 +48,7 @@
 // //是否显示暂位文本信息 default YES;
 @property(nonatomic, assign) BOOL isAllowDisplayPlaceholder;
 
-@property(nonatomic,weak)id<BaseTableViewDelegate>iDelegate;
+@property(nonatomic,weak)id<BaseEmptyTableViewDelegate>iDelegate;
 
 - (void)setConfigure;
 

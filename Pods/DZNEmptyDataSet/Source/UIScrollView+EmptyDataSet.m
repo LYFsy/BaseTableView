@@ -113,6 +113,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
     return NO;
 }
 
+//获取当前控件的cell总数
 - (NSInteger)dzn_itemsCount
 {
     NSInteger items = 0;
@@ -431,8 +432,6 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 {
     [self dzn_reloadEmptyDataSet];
 }
-
-
 #pragma mark - Reload APIs (Private)
 
 - (void)dzn_reloadEmptyDataSet
@@ -671,14 +670,15 @@ Class dzn_baseClassToSwizzleForTarget(id target)
     }
     
     // Swizzle by injecting additional implementation
+    //获取实例方法
     Method method = class_getInstanceMethod(baseClass, selector);
+    //重写了reloadData方法
     IMP dzn_newImplementation = method_setImplementation(method, (IMP)dzn_original_implementation);
     
     // Store the new implementation in the lookup table
     NSDictionary *swizzledInfo = @{DZNSwizzleInfoOwnerKey: baseClass,
                                    DZNSwizzleInfoSelectorKey: NSStringFromSelector(selector),
                                    DZNSwizzleInfoPointerKey: [NSValue valueWithPointer:dzn_newImplementation]};
-    
     [_impLookupTable setObject:swizzledInfo forKey:key];
 }
 

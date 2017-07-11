@@ -95,7 +95,6 @@
             [self.mj_header removeFromSuperview];
         }
     }
-    
 }
 
 
